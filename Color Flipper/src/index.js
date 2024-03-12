@@ -24,7 +24,10 @@ function pickColor() {
   }
   document.body.style.backgroundColor = `${colorPicked}`
   currentColor.style.color = `${colorPicked}`
-  recentColor.push(colorPicked)
+  currentColor.innerHTML = `${colorPicked}`
+  if (!recentColor.includes(colorPicked)){
+    recentColor.push(colorPicked)
+  }
   renderColors();
 }
 
@@ -42,4 +45,6 @@ function renderColors() {
 function changeColor(e) {
   colorPresent = e.target.innerHTML;
   document.body.style.backgroundColor = `${colorPresent}`;
+  currentColor.style.color = `${colorPresent}`
+  currentColor.innerHTML = `${colorPresent}`
 }
